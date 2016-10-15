@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "skills",
+            "otherEntityName": "skill",
+            "otherEntityRelationshipName": "project"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161015191451",
+    "entityTableName": "project",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl"
+}

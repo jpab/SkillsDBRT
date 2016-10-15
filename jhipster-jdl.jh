@@ -1,0 +1,18 @@
+entity Skill {
+	name String required,
+    level String required
+}
+
+entity Project {
+	name String required,
+    description String
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Project{skills} to Skill
+}
+
+// Set service options to all except few
+service all with serviceImpl
