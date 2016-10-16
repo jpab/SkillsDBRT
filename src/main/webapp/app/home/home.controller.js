@@ -21,7 +21,7 @@
             });
         }
         function loadAllS() {
-            Skill.query(function(result) {
+            ProjectSkills.get({id:1},function(result) {
                 vm.skills = result;
                     });
                 }
