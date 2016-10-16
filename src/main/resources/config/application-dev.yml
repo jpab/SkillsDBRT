@@ -25,8 +25,8 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mariadb://localhost:3306/SkillsDBRT
         name:
-        username: root
-        password:
+        username: skillsuser
+        password: skillspass
         hikari:
             data-source-properties:
                 cachePrepStmts: true

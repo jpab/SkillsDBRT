@@ -19,10 +19,17 @@ public interface SkillService {
 
     /**
      *  Get all the skills.
-     *  
+     *
      *  @return the list of entities
      */
     List<Skill> findAll();
+
+        /**
+         *  Get all the skills from a project id.
+         *
+         *  @return the list of entities
+         */
+    List<Skill> findSkillsProject(Long project);
 
     /**
      *  Get the "id" skill.

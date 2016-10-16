@@ -3,6 +3,37 @@
 
     angular
         .module('skillsDbrtApp')
+        .controller('HomeController', ProjectController);
+
+    ProjectController.$inject = ['$scope', '$state', 'Project', 'Skill'];
+
+    function ProjectController ($scope, $state, Project, Skill) {
+        var vm = this;
+
+        vm.projects = [];
+        vm.skills = [];
+        loadAllP();
+        loadAllS();
+
+        function loadAllP() {
+            Project.query(function(result) {
+                vm.projects = result;
+            });
+        }
+        function loadAllS() {
+            Skill.query(function(result) {
+                vm.skills = result;
+                    });
+                }
+    }
+})();
+
+
+/*(function() {
+    'use strict';
+
+    angular
+        .module('skillsDbrtApp')
         .controller('HomeController', HomeController);
 
     HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
@@ -31,3 +62,4 @@
         }
     }
 })();
+*/

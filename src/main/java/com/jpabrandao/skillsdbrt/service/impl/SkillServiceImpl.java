@@ -19,7 +19,7 @@ import java.util.List;
 public class SkillServiceImpl implements SkillService{
 
     private final Logger log = LoggerFactory.getLogger(SkillServiceImpl.class);
-    
+
     @Inject
     private SkillRepository skillRepository;
 
@@ -37,14 +37,21 @@ public class SkillServiceImpl implements SkillService{
 
     /**
      *  Get all the skills.
-     *  
+     *
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public List<Skill> findAll() {
         log.debug("Request to get all Skills");
         List<Skill> result = skillRepository.findAll();
 
+        return result;
+    }
+
+    @Transactional(readOnly = true)
+    public List<Skill> findSkillsProject(Long project) {
+        log.debug("Request to get all Skills from a Project ID");
+        List<Skill> result = skillRepository.findSkillsProject(project);
         return result;
     }
 
@@ -54,7 +61,7 @@ public class SkillServiceImpl implements SkillService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Skill findOne(Long id) {
         log.debug("Request to get Skill : {}", id);
         Skill skill = skillRepository.findOne(id);

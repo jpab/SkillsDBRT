@@ -27,7 +27,7 @@ import java.util.Optional;
 public class SkillResource {
 
     private final Logger log = LoggerFactory.getLogger(SkillResource.class);
-        
+
     @Inject
     private SkillService skillService;
 
@@ -110,6 +110,24 @@ public class SkillResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+    /**
+     * GET  /skills/:id : get the "id" skill.
+     *
+     * @param id the id of the skill to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the skill, or with status 404 (Not Found)
+     */
+    @RequestMapping(value = "/skills/project/{id}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<Skill> findSkillsProject(@PathVariable Long id) {
+        log.debug("REST request to get Skill : {}", id);
+        List<Skill> skill = skillService.findSkillsProject(id);
+        return skill;
+    }
+
+
 
     /**
      * DELETE  /skills/:id : delete the "id" skill.

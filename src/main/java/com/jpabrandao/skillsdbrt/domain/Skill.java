@@ -70,7 +70,7 @@ public class Skill implements Serializable {
     public Project getProject() {
         return project;
     }
-
+    
     public Skill project(Project project) {
         this.project = project;
         return this;
